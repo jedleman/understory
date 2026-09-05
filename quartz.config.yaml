@@ -6,7 +6,7 @@ configuration:
   enablePopovers: true
   analytics: null
   locale: en-US
-  baseUrl: jasonedleman.github.io/understory
+  baseUrl: jedleman.github.io/understory
   ignorePatterns:
     - private
     - templates
