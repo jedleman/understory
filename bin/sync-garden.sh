@@ -1,21 +1,23 @@
 #!/usr/bin/env bash
-# Syncs cultivated pieces from the shared Garden/ folder (symlinked into both
-# the Creative and CareerTechnology vaults) into this project's content/
-# folder, so Quartz has something to build.
+# Syncs cultivated pieces from SecondBrain's Garden/ folder (Creative's and
+# CareerTechnology's Cultivate operations both write finished pieces there
+# directly) into this project's content/ folder, so Quartz has something to
+# build.
 #
-# Assumes this project and Garden/ are siblings under the same parent
-# folder (e.g. both under ~/Documents/): ../Garden
-# (Updated 2026-09-04: Garden moved out of the single ExtendedBrain vault as
-# part of the 5-vault split -- see ~/Documents/VAULT-SPLIT-PLAN.md.)
+# Default source: ~/Documents/Obsidian/SecondBrain/Garden
+# (Updated 2026-09-05: Garden moved into the new SecondBrain hub vault --
+# see ~/Documents/VAULT-SPLIT-PLAN.md for the full history. Previously lived
+# at the sibling path ../Garden, briefly shared via symlink with Creative and
+# CareerTechnology before the hub-and-spoke redesign.)
 #
 # Usage:
-#   bin/sync-garden.sh              # sync from the default sibling path
+#   bin/sync-garden.sh              # sync from the default SecondBrain path
 #   bin/sync-garden.sh /path/to/Garden   # sync from an explicit path
 
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SOURCE="${1:-$SCRIPT_DIR/../Garden}"
+SOURCE="${1:-$SCRIPT_DIR/../Obsidian/SecondBrain/Garden}"
 DEST="$SCRIPT_DIR/content"
 
 if [ ! -d "$SOURCE" ]; then
